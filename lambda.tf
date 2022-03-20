@@ -30,6 +30,10 @@ resource "aws_lambda_permission" "sns_execution" {
 }
 
 resource "null_resource" "git_clone" {
+    triggers = {
+    always_run = "${timestamp()}"
+  }
+  
   provisioner "local-exec" {
     command = "git clone ${var.git_url} ./lambda"
   }
