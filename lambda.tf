@@ -40,7 +40,7 @@ resource "null_resource" "git_clone" {
 
   provisioner "local-exec" {
     when = destroy
-    command = "rm -r ./lambda"
+    command = "rm -rf ./lambda"
   }
     
 }
